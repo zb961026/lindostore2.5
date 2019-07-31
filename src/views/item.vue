@@ -91,7 +91,6 @@
       </div>
     </div>
     <prompt></prompt>
-    <tabitem></tabitem>
   </div>
 </template>
 
