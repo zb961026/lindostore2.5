@@ -42,7 +42,7 @@ export default {
     async login(e) {
       //判断
       try {
-        const result = await this.$http.get("http://localhost:3000/api/login", {
+        const result = await this.$http.get("http://39.100.154.113:3000/api/login", {
           params: this.ruleForm
         });
         if (result.code == "0") {

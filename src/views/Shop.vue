@@ -85,7 +85,7 @@ export default {
   methods: {
     getlist() {
       let that = this;
-      this.$http.get("http://localhost:3000/api/goodlist").then(res=>{
+      this.$http.get("http://39.100.154.113:3000/api/goodlist").then(res=>{
       this.lists=res
       console.log(this.lists)
       this.deflist=[...this.lists]

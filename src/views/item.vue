@@ -144,7 +144,7 @@ export default {
       console.log(value);
     },
     getitem() {
-      this.$http.get("http://localhost:3000/api/goodsitem").then(res => {
+      this.$http.get("http://39.100.154.113:3000/api/goodsitem").then(res => {
         this.itemsData = res;
       });
     },
