@@ -91,7 +91,7 @@
       </div>
     </div>
     <prompt></prompt>
-    <!--<tabitem></tabitem>-->
+    <tabitem></tabitem>
   </div>
 </template>
 
