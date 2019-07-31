@@ -60,7 +60,7 @@ export default {
         }
       ],
       imgHeight: "150px",
-      bannerHeight: 0,
+      // bannerHeight:0,
       screenWidth: 0
     };
   },
