@@ -178,7 +178,7 @@ export default {
       // 全选
       this.$store.commit("allCheckGoods", allChecked);
     },
-    delCheckGoodsHandle() {
+    delCheckGoodsHandle() { //删除选中商品
       this.$store.commit("delCheckGoods");
     }
   }
