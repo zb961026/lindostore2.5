@@ -82,7 +82,7 @@ mounted () {
       if(this.bannerHeight < 360) this.bannerHeight = 360
     },
     imgLoad() {
-      this.$nextTick(() => { //设置轮播图片的高度
+      this.$nextTick(() => { //轮播图片的高度
         this.imgHeight = this.$refs.imgHeight[0].height;
         console.log(this.$refs.imgHeight[0].height);
       });
