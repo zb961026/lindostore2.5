@@ -66,23 +66,23 @@ export default {
   },
 mounted () {
   
-  const that = this;
-  window.addEventListener('resize', function() {
-    that.screenWidth = document.body.clientWidth;
+  const that = this; //捕获当前的this
+  window.addEventListener('resize', function() { //Windows监听浏览器窗口大小改变
+    that.screenWidth = document.body.clientWidth; //
     that.setSize();
   }, false);
   this.setSize();
-  this.screenWidth = document.body.clientWidth;
+  this.screenWidth = document.body.clientWidth;//获取可见区域宽度
 }
 ,
   methods: {
     setSize: function () {
-      this.bannerHeight = 740 / 2560 * this.screenWidth
+      this.bannerHeight = 740 / 2560 * this.screenWidth //设置轮播图宽度
       if(this.bannerHeight > 740) this.bannerHeight = 740
       if(this.bannerHeight < 360) this.bannerHeight = 360
     },
     imgLoad() {
-      this.$nextTick(() => {
+      this.$nextTick(() => { //设置轮播图片的高度
         this.imgHeight = this.$refs.imgHeight[0].height;
         console.log(this.$refs.imgHeight[0].height);
       });

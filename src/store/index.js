@@ -94,7 +94,7 @@ let store = new Vuex.Store({ // 创建一个store
   mutations: {
 
     settoken (state, token) {
-      state.token = token
+      state.token = token //设置token
     },
     addCarPanelData (state, data) { // 加入购物车
       let bOff = true // 声明一个bool值状态
@@ -148,8 +148,8 @@ let store = new Vuex.Store({ // 创建一个store
       })
     },
     allCheckGoods (state, allChecked) { // 全选商品
-      state.carPanelData.forEach((goods, index) => {
-        goods.checked = !allChecked
+      state.carPanelData.forEach((goods, index) => { //遍历商品
+        goods.checked = !allChecked 
       })
     },
     delCheckGoods (state) { // 删除选中的商品
@@ -160,7 +160,7 @@ let store = new Vuex.Store({ // 创建一个store
         if (state.carPanelData[i].checked) // 如果选中
         // eslint-disable-next-line brace-style
         {
-          state.carPanelData.splice(i, 1)
+          state.carPanelData.splice(i, 1) //删除当前商品
         }
       }
       state.carPanelData.forEach((goods, index) => { // 遍历数据
@@ -174,17 +174,17 @@ let store = new Vuex.Store({ // 创建一个store
     },
     showCar (state) { // 显示购物车状态
       clearTimeout(state.carTimer) // 清除定时器
-      state.carShow = true
+      state.carShow = true //显示购物车状态
     },
     hideCar (state) {
       state.carTimer = setTimeout(() => { // 开启定时器
-        state.carShow = false
+        state.carShow = false //购物车状态默认不显示
       }, 500)
     }
   }
 })
 // 监听每次调用mutations的时候，都会进这个方法，然后我们可以处理一下自己的处理
 store.subscribe((mutations, state) => {
-  localStorage.setItem('carPanelData', JSON.stringify(state.carPanelData))
+  localStorage.setItem('carPanelData', JSON.stringify(state.carPanelData)) //存储一下购物车数据到本地
 })
 export default store // 暴露出去让外界可以拿到

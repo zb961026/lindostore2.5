@@ -12,8 +12,8 @@
 </template>
 
 <script>
-const headerNav =()=>import('@/components/HeaderNav')
-const footerNav=()=>import('@/components/FooterNav')
+const headerNav =()=>import('@/components/HeaderNav')//头部组件懒加载
+const footerNav=()=>import('@/components/FooterNav')//尾部组件懒加载
 export default { // 暴露模块
   name: 'App',
   components:{

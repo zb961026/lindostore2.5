@@ -9,6 +9,7 @@
 						</ul>
 						<ul class="line clear right">
 							<!-- <li v-for="(item,index) in titleData" :key="index"><a href="javascript:;" class="right" :class="{'active':active==index}" :key="index" @click="ToggleColor(item,index)">{{item.title}}</a></li> -->
+              <!-- 判断用户点击的tag执行对应的操作 -->
 							<li><a href="javascript:;" class="right" :class="{active:tag=='new'}" @click="toggleSort('new')">新品</a></li>
 							<li><a href="javascript:;" class="right" :class="{active:tag=='rec'}" @click="toggleSort('rec')">推荐</a></li>
 							<li><a href="javascript:;" class="right" :class="{active:tag=='pri'}" @click="toggleSort('pri')">实惠</a></li>
@@ -16,7 +17,7 @@
 					</div>
 				<div class="gray-box">
 					<div class="item-box">
-						<!-- 循环获取到的数据，key为指定的索引，通过item传递信息给组件shop-item -->
+						<!-- 循环获取到的数据，key为指定的索引，通过item传递信息给组件shop-item组件 -->
 					<shop-item :key="index" v-for="(item,index) in lists" :item="item"></shop-item>
 					</div>
 				</div>
@@ -69,40 +70,40 @@ export default {
           title: ""
         }
       ],
-      lists: [],
-      deflist: [],
-      tag: "new"
+      lists: [],//空数组接收后台数据
+      deflist: [],//复制一份获取到的数据
+      tag: "new"//默认是选中new
     };
   },
-  components: {
+  components: { //子组件
     shopItem,
     prompt,
     banner,
   },
   mounted() {
-    this.getlist();
+    this.getlist();//请求后台数据
   },
   methods: {
     getlist() {
-      let that = this;
-      this.$http.get("http://39.100.154.113:3000/api/goodlist").then(res=>{
-      this.lists=res
-      console.log(this.lists)
-      this.deflist=[...this.lists]
+      let that = this;//声明this
+      this.$http.get("http://localhost:3000/api/goodlist").then(res=>{ //请求后台接口
+      this.lists=res //获取响应数据
+      console.log(this.lists) //打印看看数据是否成功获取到
+      this.deflist=[...this.lists]//复制一份后台数据
       }).catch(err=>{
       })
     },
-    toggleSort: function(tag) {
-      this.tag = tag;
+    toggleSort: function(tag) { //数据筛选函数
+      this.tag = tag;//点击获取tag
       switch (tag) {
         case "new":
           this.lists = [...this.deflist];
           break;
         case "rec":
-          this.lists.sort((a, b) => b.price - a.price);
+          this.lists.sort((a, b) => b.price - a.price);//价格升序
           break;
         case "pri":
-          this.lists.sort((a, b) => a.price - b.price);
+          this.lists.sort((a, b) => a.price - b.price);//价格降序
           break;
         default:
           alert("这个参数还没功能");

@@ -97,8 +97,8 @@
 
 <script>
 import axios from "axios";
-const prompt = () => import("@/components/prompt");
-const tabitem = () => import("@/components/tabitem");
+const prompt = () => import("@/components/prompt");//引入子组件
+const tabitem = () => import("@/components/tabitem");//引入子组件
 export default {
   data() {
     return {
@@ -144,7 +144,7 @@ export default {
       console.log(value);
     },
     getitem() {
-      this.$http.get("http://39.100.154.113:3000/api/goodsitem").then(res => {
+      this.$http.get("http://localhost:3000/api/goodsitem").then(res => {
         this.itemsData = res;
       });
     },
@@ -154,7 +154,7 @@ export default {
     addCarPanelHandle() {
       let itemData = { info: this.itemInfo, count: this.count }; // 声明一个对象存储
       this.$store.commit("addCarPanelData", itemData); // 把数据传给方法使用
-      this.$notify({
+      this.$notify({ //弹出成功提示信息
         message: "加入购物车成功",
         type: "success",
         duration: 1000

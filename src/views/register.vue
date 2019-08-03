@@ -71,7 +71,7 @@ export default {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$http.get("http://39.100.154.113:3000/api/register",{params:this.ruleForm}).then(res=>{
+            this.$http.get("http://localhost:3000/api/register",{params:this.ruleForm}).then(res=>{
               if(res.success=true)
               {
               this.$alert('注册成功,快去登录吧','提示信息',{

@@ -73,9 +73,9 @@ export default {
     carPanel //注册购物车组件到页面中
   },
   methods:{
-    exit(){
-      this.$store.commit('settoken','')
-      localStorage.removeItem('token')
+    exit(){ //退出账号
+      this.$store.commit('settoken','') //清空store中的token
+      localStorage.removeItem('token') //删除localstorage中的token
     }
   }
 };
