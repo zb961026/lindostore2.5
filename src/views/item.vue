@@ -110,7 +110,7 @@ export default {
     };
   },
   mounted() {
-    this.getitem();
+    this.getitem();//请求后台数据方法
   },
   components: {
     prompt,
