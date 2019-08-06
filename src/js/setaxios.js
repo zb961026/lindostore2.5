@@ -4,10 +4,10 @@ import router from '../router'
 // http全局拦截
 // token放在header上面
 export default function setAxios () {
-  axios.interceptors.request.use(
+  axios.interceptors.request.use( //使用请求拦截器
     config => {
-      if (store.state.token) {
-        config.headers.token = store.state.token
+      if (store.state.token) { //如果有token
+        config.headers.token = store.state.token //存储token
       }
       return config
     }

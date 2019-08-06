@@ -143,8 +143,8 @@ export default {
       console.log(value);
     },
     getitem() {
-      this.$http.get("http://localhost:3000/api/goodsitem").then(res => {
-        this.itemsData = res;
+      this.$http.get("http://localhost:3000/api/goodsitem").then(res => { //请求后台数据
+        this.itemsData = res;//保存后台数据
       });
     },
     tableImg(index) {
@@ -160,10 +160,10 @@ export default {
       });
     },
     addCount() {
-      this.count++;
+      this.count++; //数量递增
     },
     subCount() {
-      this.count--;
+      this.count--; //数量递减
     }
   }
 };

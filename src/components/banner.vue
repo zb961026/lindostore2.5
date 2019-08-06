@@ -65,25 +65,25 @@ export default {
     };
   },
 mounted () {
-  
+  //挂载reisze事件====屏幕缩放监听宽度变化
   const that = this; //捕获当前的this
   window.addEventListener('resize', function() { //Windows监听浏览器窗口大小改变
-    that.screenWidth = document.body.clientWidth; //
-    that.setSize();
+    that.screenWidth = document.body.clientWidth; //网页可见区域宽
+    that.setSize();//设置当前的尺寸
   }, false);
-  this.setSize();
+  this.setSize();//设置尺寸
   this.screenWidth = document.body.clientWidth;//获取可见区域宽度
 }
 ,
   methods: {
     setSize: function () {
       this.bannerHeight = 740 / 2560 * this.screenWidth //设置轮播图宽度
-      if(this.bannerHeight > 740) this.bannerHeight = 740
+      if(this.bannerHeight > 740) this.bannerHeight = 740 
       if(this.bannerHeight < 360) this.bannerHeight = 360
     },
     imgLoad() {
-      this.$nextTick(() => { //轮播图片的高度
-        this.imgHeight = this.$refs.imgHeight[0].height;
+      this.$nextTick(() => { //使用vue.$nextTick()方法可以dom数据更新后延迟执行
+        this.imgHeight = this.$refs.imgHeight[0].height;//获取图片的高度为轮播图高度
         console.log(this.$refs.imgHeight[0].height);
       });
     }

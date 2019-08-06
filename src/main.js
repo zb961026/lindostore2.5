@@ -24,15 +24,15 @@ router.beforeEach((to, from, next) => { //路由拦截
   store.commit('settoken', localStorage.getItem('token')) //给store添加一个token
   if (to.meta.requireAuth) { //判断登录权限
     if (store.state.token) {//判断有无token
-      next()
+      next() //执行操作
     } else {
       next({ //跳转到login
         path: '/login',
-        query: {redirect: to.fullPath}
+        query: {redirect: to.fullPath}//定向到此路由路径
       })
     }
   } else {
-    next()
+    next() //下一步操作
   }
 })
 
