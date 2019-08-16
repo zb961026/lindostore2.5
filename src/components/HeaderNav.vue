@@ -8,6 +8,7 @@
 					</h1>
 					<ul class="nav-aside">
 						<li class="nav-user">
+              <!-- 路由跳转 -->
 							<router-link to="./login">个人中心</router-link>
 							<!--active-->
 							<div class="nav-user-wrapper">
@@ -23,6 +24,7 @@
 						<car-panel></car-panel>   
 					</ul>
 					<ul class="nav-list">
+          <!-- 循环列表列表中的数据，用key值鉴别 -->
 					<a v-for="(item,index) in headdata" :key="index" href="./"><li>{{item.desc}}</li></a>
 					<a href="javascript:;" ><li><input type="text" placeholder="魅族16s" class="search">
 					<img src="../assets/img/search.png" alt="" class="search_icon">

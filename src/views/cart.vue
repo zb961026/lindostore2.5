@@ -26,11 +26,11 @@
 									<div class="cart-top-items" v-for="(item,index) in carPanelData" :key="index">
 										<div class="cart-items">
 											<div class="items-choose">
-												<!-- 判断选中状态和点击事件 -->
+												<!-- 判断选中状态和点击事件，同时绑定选中类样式 -->
 												<span class="blue-checkbox-new" :class="{'checkbox-on':item.checked}" @click="checkGoodsHandle(item.sku_id)"><a></a></span>
 											</div>
 											<div class="items-thumb">
-												<!-- 循环图片连接 -->
+												<!-- 循环图片 -->
 												<img v-lazy="item.ali_image+'?x-oss-process=image/resize,w_80/quality,Q_100/format,webp'">
 												<a href="javascript:;" target="_blank"></a>
 											</div>
@@ -95,6 +95,7 @@
 									
 								</div>
 							</div>
+							<!-- 动态绑定一个类样式 -->
 							<router-link tag="span" class="jianguo-blue-main-btn big-main-btn js-checkout" :class="{'disabled-btn':checkedCount<=0}" to="/checkout"><a>现在结算</a></router-link>
 						</div>
 					</div>

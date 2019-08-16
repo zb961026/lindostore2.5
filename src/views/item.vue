@@ -69,6 +69,7 @@
             </div>
             <div class="sku-dynamic-params clear">
               <div class="params-name">数量</div>
+              <!-- 动态绑定数量再进行判断 -->
               <el-input-number
                 v-model="count"
                 @change="handleChange"
@@ -119,7 +120,7 @@ export default {
   watch: {
     "$route.query.itemId"() {
       // 随着路由query变化
-      this.itemId = this.$route.query.itemId;
+      this.itemId = this.$route.query.itemId;//itemid就是路由获取到的id
       this.imgIndex = 0; // 索引默认是0
     }
   },

@@ -1,6 +1,9 @@
 <template>
+    <!-- 动态绑定一个height -->
     <el-carousel indicator-position="outside" :height="bannerHeight + 'px'">
+      <!-- 获取数据并且循环出来 -->
      <el-carousel-item v-for="(item,index) in bannerData" :key="index">
+       <!-- 循环图片 -->
        <img :src="item.img" class="bannerImg" />
      </el-carousel-item>
    </el-carousel>
@@ -59,9 +62,9 @@ export default {
           title: ""
         }
       ],
-      imgHeight: "150px",
+      imgHeight: "150px",//初始化图片高度
       // bannerHeight:0,
-      screenWidth: 0
+      screenWidth: 0//初始化可见区域宽度
     };
   },
 mounted () {
@@ -78,8 +81,8 @@ mounted () {
   methods: {
     setSize: function () {
       this.bannerHeight = 740 / 2560 * this.screenWidth //设置轮播图宽度
-      if(this.bannerHeight > 740) this.bannerHeight = 740 
-      if(this.bannerHeight < 360) this.bannerHeight = 360
+      if(this.bannerHeight > 740) this.bannerHeight = 740 //判断设置高度
+      if(this.bannerHeight < 360) this.bannerHeight = 360 //判断设置高度
     },
     imgLoad() {
       this.$nextTick(() => { //使用vue.$nextTick()方法可以dom数据更新后延迟执行

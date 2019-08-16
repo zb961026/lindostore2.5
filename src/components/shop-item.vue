@@ -12,7 +12,7 @@
 									<ul class="colors-list">
 										<!-- 根据索引获取对应的商品颜色分类信息-->
 										<li v-for="(sku,index) in item.sku_info" :key="index">
-											<!-- 根据索引获取对应颜色的选中状态和对应的颜色文字-->
+											<!-- 根据索引获取对应颜色的选中状态和对应的颜色文字，且动态绑定一个选中类样式-->
 											<a href="javascript:;" @click="tableIndex(index)" :class="{'active':index==itemIndex}" :title="sku.spec_json.show_name">
 												<!-- 根据索引获取到选中的对应颜色的缩略图片-->
 												<img v-lazy="sku.spec_json.image"></a></li>

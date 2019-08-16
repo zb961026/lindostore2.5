@@ -42,12 +42,17 @@ export default {
     async login(e) {
       //判断
       try {
+        //请求后台接口数据
         const result = await this.$http.get("http://localhost:3000/api/login", {
           params: this.ruleForm
         });
+        //判断状态码
         if (result.code == "0") {
+          //设置token
           this.$store.commit("settoken", result.token);
+          //存储token
           window.localStorage.setItem("token", result.token);
+          //弹出成功信息
           this.$alert("登录成功", "提示信息", {
             confirmButtonText: "确定",
             callback: action => {
@@ -57,6 +62,7 @@ export default {
               });
             }
           });
+          //返回上一级路由
           this.$router.go(-1);
         } else {
                 this.$alert('登录失败,手机号或密码错误','提示信息',{

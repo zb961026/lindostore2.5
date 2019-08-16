@@ -71,7 +71,9 @@ export default {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            //请求后台数据接口
             this.$http.get("http://localhost:3000/api/register",{params:this.ruleForm}).then(res=>{
+              //判断响应是否成功
               if(res.success=true)
               {
               this.$alert('注册成功,快去登录吧','提示信息',{
@@ -83,6 +85,7 @@ export default {
                   })
                 }
               })
+              //跳转到登录页路由
               this.$router.replace('/login')
               }
               else{

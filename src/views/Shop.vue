@@ -31,9 +31,9 @@
 </template>
 
 <script>
-const banner =()=>import('@/components/banner')
-const shopItem =()=>import('@/components/shop-item')
-const prompt =()=>import('@/components/prompt')
+const banner =()=>import('@/components/banner') //按需引入组件
+const shopItem =()=>import('@/components/shop-item') //按需引入组件
+const prompt =()=>import('@/components/prompt') //按需引入组件
 import axios from "axios";
 export default {
   data() {
@@ -85,19 +85,19 @@ export default {
   },
   methods: {
     getlist() {
-      let that = this;//声明this
+      let that = this;//捕获this
       this.$http.get("http://localhost:3000/api/goodlist").then(res=>{ //请求后台接口
       this.lists=res //获取响应数据
       console.log(this.lists) //打印看看数据是否成功获取到
       this.deflist=[...this.lists]//复制一份后台数据
-      }).catch(err=>{
+      }).catch(err=>{//异常捕获
       })
     },
     toggleSort: function(tag) { //数据筛选函数
       this.tag = tag;//点击获取tag
       switch (tag) {
         case "new":
-          this.lists = [...this.deflist];
+          this.lists = [...this.deflist];//复制一份默认数据
           break;
         case "rec":
           this.lists.sort((a, b) => b.price - a.price);//价格升序

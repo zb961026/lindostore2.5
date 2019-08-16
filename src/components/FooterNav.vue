@@ -3,10 +3,13 @@
         <div id="footer">
 				<div class="ft container">
 					<ul class="ft_itembox">
+						<!-- 循环列表中的数据 -->
 						<li class="ft_item" v-for="(item,index) in footdata" :key="index">
 							<div class="ft_img">
+								<!-- 循环图片地址 -->
 								<img :src="item.img" :alt="item.title">
 							</div>
+							<!-- 循环标题信息 -->
 							<h5 class="ft_info">{{item.title}}</h5>
 						</li>
 					</ul>
